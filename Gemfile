@@ -72,3 +72,6 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+
+gem 'slim-rails', '3.1.3'
+gem 'html2slim'
