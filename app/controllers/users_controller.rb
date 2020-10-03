@@ -6,7 +6,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
+    if @user.update(user_params)
+      redirect_to user_path(params[:id])
+    else
+      render 'edit'
+    end
   end
 
   def destroy
