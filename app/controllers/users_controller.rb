@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:edit, :destroy, :show]
+  before_action :set_user, only: [:edit, :update,:destroy, :show]
 
   def edit
   end
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :hobby, :introduction, :profile_image_id)
+    params.require(:user).permit(:name, :hobby, :introduction, :profile_image)
   end
 
 end

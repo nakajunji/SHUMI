@@ -1,6 +1,8 @@
 div.row
 	h3 Editing User
 	= form_for @user do |f|
+		= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100'
+		= f.attachment_field :profile_image
 		= f.text_field :name
 		= f.text_field :hobby
 		= f.text_field :introduction
