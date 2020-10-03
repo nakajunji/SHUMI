@@ -12,3 +12,4 @@ div.row
 		= f.text_area :body
 		br
 		= f.submit "Edit"
+	= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "本当に削除しますか？"}
