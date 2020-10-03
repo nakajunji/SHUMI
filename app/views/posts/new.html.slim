@@ -1,2 +1,15 @@
-h1 Posts#new
-p Find me in app/views/posts/new.html.slim
+div.row
+	h3 NEW POST
+	= form_with model: @post, local: true do |f|
+		= attachment_image_tag @post, :post_image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100'
+		br
+		= f.attachment_field :post_image
+		br
+		= f.label :"Title:  "
+		= f.text_field :title
+		br
+		= f.label :"Body:  "
+		= f.text_area :body
+		br
+		= f.submit "Post"
+
