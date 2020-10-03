@@ -1,2 +1,14 @@
-h1 Users#show
-p Find me in app/views/users/show.html.slim
+div.row
+	div.col-lg-5
+		| #Name  
+		= @user.name
+		br
+		| #Hobby  
+		= @user.hobby
+		br
+		| #Introduction  
+		= @user.introduction
+		br
+		= link_to "Edit", edit_user_path(@user)
+
+	div.col-lg-7
