@@ -9,5 +9,5 @@ class User < ApplicationRecord
   has_many :favorited_posts, through: :likes, source: :post
   has_many :comments, dependent: :destroy
 
-  attachment :profile_image #reffile
+  attachment :profile_image # reffile
 end

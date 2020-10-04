@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
-
-  before_action :set_post, only: [:edit, :update, :destroy, :show]
+  before_action :set_post, only: %i[edit update destroy show]
 
   def new
     @post = Post.new
@@ -16,8 +15,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @post.update(post_params)
@@ -32,8 +30,7 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
-  def show
-  end
+  def show; end
 
   def index
     @posts = Post.all
