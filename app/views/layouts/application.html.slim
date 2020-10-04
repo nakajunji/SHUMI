@@ -7,5 +7,26 @@ html
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
   body
-    = yield
+  	header
+  		nav.navbar.navbar-inverse.navbar-fixed-top
+	  		div.container
+	  			div.navbar-header
+  					h1 SHUMI
+  				- if user_signed_in?
+					ul.nav.navbar-nav.navbar-right
+						li = link_to "ABOUT", home_about_path
+						li = link_to "MY PAGE", user_path(current_user)
+						li = link_to "POSTS", posts_path
+						li = link_to "LOGOUT", destroy_user_session_path, method: :delete
+				- else
+					ul.nav.navbar-nav.navbar-right
+						li = link_to "ABOUT", home_about_path
+						li = link_to "SIGN UP", new_user_registration_path
+						li = link_to "SIGN IN", new_user_session_path
+
+  	main
+  		div.container
+    		= yield
+    footer
