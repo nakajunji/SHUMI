@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: %i[edit update destroy show]
 
-  before_action :set_user, only: [:edit, :update,:destroy, :show]
-
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update(user_params)
@@ -13,11 +11,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-  end
+  def destroy; end
 
-  def show
-  end
+  def show; end
 
   def index
     @users = User.all
@@ -32,5 +28,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :hobby, :introduction, :profile_image)
   end
-
 end
