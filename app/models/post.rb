@@ -6,6 +6,8 @@ class Post < ApplicationRecord
 
   attachment :post_image # refile
 
+  acts_as_taggable #タグ付け機能
+
   # いいねされているかどうか
   def favorited_by?(user)
   	favorites.where(user_id: user.id).exists?
