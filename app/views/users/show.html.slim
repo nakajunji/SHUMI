@@ -1,15 +1,27 @@
 div.row
-	div.col-lg-5
-		= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100'
-		| #Name  
-		= @user.name
-		br
-		| #Hobby  
-		= @user.hobby
-		br
-		| #Introduction  
-		= @user.introduction
-		br
-		= link_to "Edit", edit_user_path(@user)
+	div.col-lg-6
+		= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:'300x300'
+		ul
+			li
+				| Name:  
+				= @user.name
+			li
+				| Hobby:  
+				= @user.hobby
+			li
+				| Introduction:  
+				= @user.introduction
+			li
+				= link_to "Edit", edit_user_path(@user), class: "btn btn-success"
 
-	div.col-lg-7
+	div.col-lg-6
+		- @posts.each do |post|
+			.row
+				.col-lg-3
+					= link_to post_path(post) do
+						= attachment_image_tag post, :post_image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100'
+				.col-lg-9
+					li
+						= post.title
+					li
+						= post.body
