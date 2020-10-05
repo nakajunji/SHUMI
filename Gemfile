@@ -84,3 +84,5 @@ gem 'jquery-rails'
 
 gem 'rubocop'
 gem 'rubocop-rails'
+
+gem 'font-awesome-sass'
