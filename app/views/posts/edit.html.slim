@@ -1,15 +1,17 @@
-div.row
+.row
 	h3 EDITING POST
 	= form_with model: @post, local: true do |f|
 		= attachment_image_tag @post, :post_image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100'
-		br
 		= f.attachment_field :post_image
-		br
-		= f.label :"Title:  "
-		= f.text_field :title
-		br
-		= f.label :"Body:  "
-		= f.text_area :body
-		br
-		= f.submit "Edit"
-	= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "本当に削除しますか？"}
+		.form-group
+			= f.label :"Title:  "
+			= f.text_field :title
+		.form-group
+			= f.label :"Body:  "
+			= f.text_area :body
+		.form-group
+			= f.label :Tag
+			= f.text_field :tag_list, value: @post.tag_list.join(',')
+		.form-group
+			= f.submit "Update", class: "btn btn-primary"
+	= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger"

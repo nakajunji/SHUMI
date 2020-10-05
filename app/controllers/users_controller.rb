@@ -13,7 +13,9 @@ class UsersController < ApplicationController
 
   def destroy; end
 
-  def show; end
+  def show
+    @posts = Post.where(user_id: @user.id)
+  end
 
   def index
     @users = User.all

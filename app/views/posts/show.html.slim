@@ -1,23 +1,28 @@
-div.row
+.row
 	h3 POST DETAILS
-	div.row
-		div.col-lg-7
+	.row
+		.col-lg-7
 			= attachment_image_tag @post, :post_image, size:'300x300', fallback: "no_image.jpg", size:'300x300'
-		div.col-lg-5
-			= @post.title
-			br
-			= @post.body
-			br
-			= link_to "Edit", edit_post_path(@post)
+		.col-lg-5
+			ul
+				li
+					= @post.title
+				li
+					= @post.body
+				li
+					= render 'posts/tag_list', tag_list: @post.tag_list
+			- if @post.user == current_user
+				li
+					= link_to "Edit", edit_post_path(@post), class: "btn btn-success"
 
-	div.row
+	.row
 		ul
 			li.comment-create
 				h4 Comments
 			li#comments_area
 				= render partial: 'comments/index', locals: { comments: @comments }
 		- if user_signed_in?
-			div.comment-create
+			.comment-create
 				h4 Post a comment
 				= render partial: 'comments/form', locals: { comment: @comment, post: @post }
 			div[id="show_favorite_#{@post.id}"]
