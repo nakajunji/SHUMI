@@ -30,7 +30,11 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
-  def show; end
+  def show
+    @comment = Comment.new
+    @comments = @post.comments.order(created_at: :desc)
+    @favorite = Favorite.find_by(user_id: current_user.id, post_id: @post.id)
+  end
 
   def index
     @posts = Post.all

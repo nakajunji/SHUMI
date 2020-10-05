@@ -9,3 +9,16 @@ div.row
 			= @post.body
 			br
 			= link_to "Edit", edit_post_path(@post)
+
+	div.row
+		ul
+			li.comment-create
+				h4 Comments
+			li#comments_area
+				= render partial: 'comments/index', locals: { comments: @comments }
+		- if user_signed_in?
+			div.comment-create
+				h4 Post a comment
+				= render partial: 'comments/form', locals: { comment: @comment, post: @post }
+			div[id="show_favorite_#{@post.id}"]
+				= render partial: 'favorites/favorite', locals: { post: @post, favorite: @favorite}
