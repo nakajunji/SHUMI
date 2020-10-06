@@ -37,7 +37,14 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @q = Post.ransack(params[:q])
+    if params[:tag_name] #タグの絞り込み
+      @posts = Post.tagged_with(params[:tag_name]).page(params[:page]).per(5)
+    elsif params[:q] # :title, :bodyで検索
+      @posts = @q.result(distinct: true).page(params[:page]).per(5)
+    else
+      @posts = Post.page(params[:page]).per(5)
+    end
   end
 
   private
