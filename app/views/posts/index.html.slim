@@ -1,14 +1,21 @@
-div.row
+.row
 	h3 POSTS
+	= search_form_for @q do |f|
+		= f.label :title_or_body_or_tag_list, "Keyword"
+		= f.search_field :title_or_body_cont
+		= f.submit "Search"
 	- @posts.each do |post|
-		.col-lg-3
-			= link_to post_path(post) do
-				= attachment_image_tag post, :post_image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100'
-		.col-lg-9
-			ul
-				li
-					= post.title
-				li
-					= post.body
-				li
-					= render 'posts/tag_list', tag_list: post.tag_list
+		.row
+			.col-lg-3
+				= link_to post_path(post) do
+					= attachment_image_tag post, :post_image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100'
+			.col-lg-9
+				ul
+					li
+						= post.title
+					li
+						= post.body
+					li
+						= render 'posts/tag_list', tag_list: post.tag_list
+
+	= paginate @posts

@@ -88,3 +88,7 @@ gem 'rubocop-rails'
 gem 'font-awesome-sass'
 
 gem 'acts-as-taggable-on', '~> 6.0'
+
+gem 'ransack'
+
+gem 'kaminari'

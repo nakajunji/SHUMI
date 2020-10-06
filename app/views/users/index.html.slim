@@ -1,11 +1,17 @@
-div.row
+.row
 	h3 Users
+	= search_form_for @q do |f|
+		= f.label :name_or_hobby, "Keyword"
+		= f.search_field :name_or_hobby_cont
+		= f.submit "Search"
 	- @users.each do |user|
-		div.row
-			= link_to user_path(user) do
-				= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100'
-			| Name:  
-			= user.name
-			br
-			| Hobby:  
-			= user.hobby
+		.row
+			.col-lg-3
+				= link_to user_path(user) do
+					= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100'
+			.col-lg-9
+				| Name:
+				= user.name
+				br
+				| Hobby:
+				= user.hobby
