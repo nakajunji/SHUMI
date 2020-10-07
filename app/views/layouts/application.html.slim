@@ -17,11 +17,11 @@ html
           - if user_signed_in?
             ul.nav.navbar-nav.navbar-right
               li
-                = link_to "ABOUT", home_about_path
+                = link_to "ABOUT", home_about_path, class: 'link'
               li
-                = link_to "MY PAGE", user_path(current_user)
+                = link_to "MY PAGE", user_path(current_user), class: 'link'
               li
-                = link_to "USERS", users_path
+                = link_to "USERS", users_path, class: 'link'
               li.dropdown
                 a.dropdown-toggle data-toggle="dropdown"
                   | POSTS
