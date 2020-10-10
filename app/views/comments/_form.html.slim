@@ -1,3 +1,5 @@
 = form_with(model: [post, comment], url: post_comments_path(post), data: {remote: true}) do |f|
-	= f.text_area :comment_content, id: "textarea"
-	= f.submit "send", class: "btn btn-primary"
+	.col-lg-10
+		= f.text_area :comment_content, id: "textarea", rows: 3
+	.col-lg-2
+		= f.submit "send", class: "btn btn-primary"

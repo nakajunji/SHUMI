@@ -1,9 +1,11 @@
 .row
 	h3 Editing User
 	= form_with model: @user, local: true do |f|
-		= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100'
+		img.img_prev.hidden width=100 height=100
+			= attachment_image_tag @user, :profile_image,
+			:fill, 100, 100, fallback: "no_image.jpg", size:'100x100', class: "default_img"
 		.form-group
-			= f.attachment_field :profile_image
+			= f.attachment_field :profile_image, class: "img_form"
 		.form-group
 			= f.label :Name
 			= f.text_field :name
@@ -14,4 +16,5 @@
 			= f.label :Introduction
 			= f.text_area :introduction
 		.form-group
-			= f.submit "Update"
+			= f.submit "Update", class: "btn btn-primary"
+

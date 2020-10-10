@@ -1,3 +1,59 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main-visual-area {
+	width: 100%;
+	height: 670px;
+	background-image: url(main-visual.jpeg);
+	background-size: cover;
+	.btn {
+	width: 400px;
+	height: 40px;
+}
+}
+
+.main-content-box {
+	text-align: center;
+	a {
+		font-size: 20px;
+		border-radius: 100px;
+	}
+}
+
+.main-text {
+	margin: 140px 0;
+	padding-bottom: 50px;
+	color: #fff;
+	span {
+		font-size: 40px;
+	}
+	p {
+		padding-top: 20px;
+		font-size: 18px;
+		span {
+			font-size: 20px;
+		}
+	}
+}
+
+.log-in {
+	margin-bottom: 30px;
+	.btn {
+		background: rgba(26, 144, 255, 0.8);
+		border: none;
+		&:hover {
+			background: rgba(26, 144, 255, 1);
+		}
+	}
+}
+
+.sign-up {
+	.btn {
+		background: rgba(46, 139, 87, 0.7);
+		border: none;
+		&:hover {
+			background: rgba(46, 139, 87, 1);
+		}
+	}
+}

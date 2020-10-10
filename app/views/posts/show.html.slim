@@ -1,29 +1,50 @@
 .row
-	h3 POST DETAILS
-	.row
-		.col-lg-7
-			= attachment_image_tag @post, :post_image, size:'300x300', fallback: "no_image.jpg", size:'300x300'
-		.col-lg-5
-			ul
-				li
-					= @post.title
-				li
-					= @post.body
-				li
-					= render 'posts/tag_list', tag_list: @post.tag_list
-			- if @post.user == current_user
-				li
-					= link_to "Edit", edit_post_path(@post), class: "btn btn-success"
+	h3.title
+		| POST DETAILS
+.row.show-post-box
+	.col-lg-4.col-lg-offset-1
+		= attachment_image_tag @post, :post_image, size:'400x400', fallback: "no_image.jpg", size:'400x400'
+	.col-lg-4.col-lg-offset-2
+		ul.show-post-text
+			li
+				| Title:　
+				= @post.title
+			li.white-space
+				.row
+					p.col-lg-2
+						| Body:　
+					p.col-lg-10
+						= @post.body
+			li
+				= render 'posts/tag_list', tag_list: @post.tag_list
+			li.row
+				.col-lg-4
+					= link_to user_path(@post.user), class: "link" do
+						i.fas.fa-pencil-alt
+						= @post.user.name
+				.col-lg-8
+					i.fas.fa-clock
+					= @post.created_at.to_s(:datetime_jp2)
+		- if @post.user == current_user
+			li.edit-btn
+				= link_to "Edit", edit_post_path(@post), class: "btn btn-success"
+.row
+	div[id="show_favorite_#{@post.id}"
+		class="favorites col-lg-6 col-lg-offset-3"]
 
-	.row
-		ul
-			li.comment-create
-				h4 Comments
-			li#comments_area
-				= render partial: 'comments/index', locals: { comments: @comments }
+		= render partial: 'favorites/favorite', locals: { post: @post, favorite: @favorite}
+
+.row
+	.col-lg-6.col-lg-offset-3.show-comments
+	    h4
+	    	| Comments
+		ul#comments_area
+			= render partial: 'comments/index', locals: { comments: @comments }
+.row
+	.col-lg-6.col-lg-offset-3
 		- if user_signed_in?
 			.comment-create
-				h4 Post a comment
-				= render partial: 'comments/form', locals: { comment: @comment, post: @post }
-			div[id="show_favorite_#{@post.id}"]
-				= render partial: 'favorites/favorite', locals: { post: @post, favorite: @favorite}
+				h4
+					| Post a comment
+				.row.comment-form
+					= render partial: 'comments/form', locals: { comment: @comment, post: @post }
