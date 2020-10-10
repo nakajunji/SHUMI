@@ -47,6 +47,7 @@ main {
  	padding-top: 70px;
  	font-family: 'Roboto', sans-serif;
  	background: rgba(215, 238, 255, 0.5);
+ 	min-height: 740px;
 }
 
 h3 {
@@ -63,6 +64,14 @@ li {
 
 .white-space {
 	white-space: pre-wrap;
+}
+
+.btn {
+	border-radius: 50px;
+}
+
+.form-group {
+	font-size: 18px;
 }
 
 footer {
