@@ -1,2 +1,46 @@
-h1 Users#show
-p Find me in app/views/users/show.html.slim
+.row
+	h3.title
+		| USER DETAILS
+.row
+	.col-lg-4.show-user-box
+		.row.show-user-img
+			= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:'300x300'
+		.row
+			ul.show-user-text
+				li
+					.col-lg-3
+						| Name:
+					.col-lg-8.col-lg-offset-1
+						= @user.name
+				li
+					.col-lg-3
+						| Hobby:
+					.col-lg-8.col-lg-offset-1
+						= @user.hobby
+				li
+					.col-lg-3
+						| Introduction:
+					.col-lg-8.col-lg-offset-1.white-space
+						= @user.introduction
+				li
+					- if @user == current_user
+						.col-lg-2.col-lg-offset-4
+							= link_to "Edit", edit_user_path(@user), class: "btn btn-success"
+
+	.col-lg-6.col-lg-offset-2
+		- @posts.each do |post|
+			.row.show-users-posts-box
+				.col-lg-3.index-user-img
+					= link_to post_path(post) do
+						= attachment_image_tag post, :post_image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100'
+				.col-lg-9.show-users-posts-text
+					.row
+						.col-lg-4
+							| Title:
+						.col-lg-8
+							= post.title
+					.row
+						.col-lg-4
+							| Body:
+						.col-lg-8
+							= post.body.truncate(20)

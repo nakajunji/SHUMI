@@ -1,2 +1,35 @@
-h1 Users#edit
-p Find me in app/views/users/edit.html.slim
+.row
+	h3.title
+		| Editing User
+.row.edit-box
+	= form_with model: @user, local: true do |f|
+		.row
+			.col-lg-4.col-lg-offset-1
+				img.img_prev.hidden width=100 height=100
+					= attachment_image_tag @user, :profile_image,
+					:fill, 100, 100, fallback: "no_image.jpg", size:'100x100', class: "default_img"
+				.form-group
+					= f.attachment_field :profile_image, class: "img_form"
+			.col-lg-4.col-lg-offset-2
+				.row.form-group
+					.col-lg-3
+						= f.label :Name
+					.col-lg-9
+						= f.text_field :name
+				.row.form-group
+					.col-lg-3
+						= f.label :Hobby
+					.col-lg-9
+						= f.text_field :hobby
+				.row.form-group
+					.col-lg-3
+						= f.label :Introduction
+					.col-lg-9
+						= f.text_area :introduction
+		.row.form-group
+			.col-lg-2.col-lg-offset-5
+				= f.submit "Update", class: "btn btn-primary edit-update-btn"
+			- if @user == current_user
+				.col-lg-1.col-lg-offset-4
+					= link_to "Delete", user_path(@user), method: :delete, data: {confirm: "本当に退会しますか？"}, class: "btn btn-danger"
+

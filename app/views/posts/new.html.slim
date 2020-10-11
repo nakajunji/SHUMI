@@ -1,2 +1,33 @@
-h1 Posts#new
-p Find me in app/views/posts/new.html.slim
+.row
+	h3.title
+		| NEW POST
+.row.edit-post-box
+	= form_with model: @post, local: true do |f|
+		.row
+			.col-lg-4.col-lg-offset-1
+				img.img_prev.hidden width=300 height=300
+					= attachment_image_tag @post, :post_image,
+					:fill, 300, 300, fallback: "no_image.jpg", size:'300x300', class: "default_img"
+				.form-group
+					= f.attachment_field :post_image, class: "img_form"
+			.col-lg-4.col-lg-offset-2
+				.row.form-group
+					.col-lg-3
+						= f.label :Title
+					.col-lg-9
+						= f.text_field :title, class: "post-text-field"
+				.row.form-group
+					.col-lg-3
+						= f.label :Body
+					.col-lg-9
+						= f.text_area :body, class: "post-text-area", rows: 7
+				.row.form-group
+					.col-lg-3
+						= f.label :Tag
+					.col-lg-9
+						//タグを , で分けて配列で保存
+						= f.text_field :tag_list, value: @post.tag_list.join(','), class: "post-text-field"
+		.row.form-group
+			.col-lg-2.col-lg-offset-5
+				= f.submit "Post", class: "btn btn-success edit-update-btn"
+

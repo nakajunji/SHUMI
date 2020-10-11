@@ -12,5 +12,24 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= require jquery
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
+
+$( document ).on('turbolinks:load', function() {
+function readfile(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $('.img_prev').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+$(".img_form").change(function(){
+  $('.img_prev').removeClass('hidden');
+  $('.default_img').remove();
+  readfile(this);
+});
+});

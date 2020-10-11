@@ -1,3 +1,101 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* ----------ここからindex---------- */
+
+.index-user-box {
+	margin-bottom: 30px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	akign-items: center;
+
+	.col-lg-offset-2 {
+		background: rgba(255, 255, 255, 0.8);
+		border-radius: 30px;
+		display: flex;
+		justify-content: center;
+		akign-items: center;
+
+		.index-post-img {
+			margin: auto;
+			a {
+				display: block;
+				margin: auto;
+				width: 150px;
+				height: 150px;
+				img {
+					display: block;
+					margin: auto;
+				}
+			}
+		}
+
+		.index-user-text {
+			ul {
+				li{
+					padding-top: 10px;
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}
+
+/* ----------ここまでindex---------- */
+
+
+/* ----------ここからshow---------- */
+
+.show-user-box {
+	font-size: 20px;
+	background: rgba(255, 255, 255, 0.8);
+	padding-top: 30px;
+}
+
+.show-user-img {
+	padding-bottom: 50px;
+	display: flex;
+	justify-content: center;
+	akign-items: center;
+}
+
+.show-user-text {
+		li {
+			padding-bottom: 50px;
+
+			.col-lg-offset-4{
+
+				a {
+					width: 100px;
+				}
+			}
+		}
+}
+
+.show-users-posts-box {
+		background: rgba(255, 255, 255, 0.8);
+		border-radius: 30px;
+		display: flex;
+		justify-content: center;
+		akign-items: center;
+		margin-bottom: 20px;
+}
+
+.show-users-posts-text {
+	font-size: 18px;
+}
+
+/* ----------ここまでshow---------- */
+
+
+/* ----------ここからsign_in---------- */
+
+.log-in-title {
+	margin: 100px;
+}
+
+.log-in-form {
+	margin-top: 100px;
+}

@@ -1,0 +1,96 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+    position: relative;
+  	min-height: 100%;
+}
+
+body {
+	margin-bottom: 50px;
+	padding-bottom: 0;
+}
+
+nav {
+	font-family: 'Anton', sans-serif;
+}
+
+.navbar-nav {
+	font-size: 25px;
+	padding-top: 10px;
+}
+
+main {
+ 	padding-top: 70px;
+ 	font-family: 'Roboto', sans-serif;
+ 	background: rgba(215, 238, 255, 0.5);
+ 	min-height: 740px;
+}
+
+h3 {
+	font-family: 'Anton', sans-serif;
+}
+
+h4 {
+	font-family: 'Anton', sans-serif;
+}
+
+li {
+	list-style: none;
+}
+
+.white-space {
+	white-space: pre-wrap;
+}
+
+.btn {
+	border-radius: 50px;
+}
+
+.form-group {
+	font-size: 18px;
+}
+
+.search-form {
+	text-align: right;
+}
+
+.edit-box {
+	background: rgba(255, 255, 255, 0.8);
+	border-radius: 30px;
+	padding: 30px 0;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 0;
+  width: 100%;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}

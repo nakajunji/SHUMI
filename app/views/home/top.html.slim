@@ -1,0 +1,16 @@
+.container.main-visual-area
+	.col-lg-6.col-lg-offset-3.main-content-box
+		.row.main-text
+			h2
+				| ようこそ　
+				span SHUMI　
+				| へ
+			p
+				span SHUMI　
+				| は自分の趣味を投稿したり、
+				br
+				| 新しい趣味を見つけたりできる、投稿サイトです
+		.row.log-in
+			= link_to "LOGIN", new_user_session_path, class: "btn btn-primary"
+		.row.sign-up
+			= link_to "SIGN UP", new_user_registration_path, class: "btn btn-success"

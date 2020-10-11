@@ -1,2 +1,35 @@
-h1 Posts#index
-p Find me in app/views/posts/index.html.slim
+.row
+	h3.col-lg-8.col-lg-offset-2.title
+		| POSTS LIST
+.row.search-form
+	= search_form_for @q do |f|
+		= f.label :title_or_body_or_tag_list, "Keyword"
+		= f.search_field :title_or_body_cont
+		= f.submit "Search"
+- @posts.each do |post|
+	.row.index-post-box
+		.col-lg-8
+			.col-lg-3.index-post-img
+				= link_to post_path(post) do
+					= attachment_image_tag post, :post_image, :fill, 150, 150, fallback: "no_image.jpg", size:'150x150'
+			.col-lg-9
+				ul.index-post-text
+					li.row
+						.col-lg-1
+							i.fas.fa-paperclip
+						.col-lg-11.post-title
+							= post.title
+					li
+						= post.body.truncate(20)
+					li
+						= render 'posts/tag_list', tag_list: post.tag_list
+					li.row
+						.col-lg-4
+							= link_to user_path(post.user), class: "link" do
+								i.fas.fa-pencil-alt
+								= post.user.name
+						.col-lg-8
+							i.fas.fa-clock
+							= post.created_at.to_s(:datetime_jp2)
+.row.paginate
+	= paginate @posts
