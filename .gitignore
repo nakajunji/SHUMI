@@ -32,3 +32,5 @@
 
 
 /.env
+
+/vendor/bundle/*
