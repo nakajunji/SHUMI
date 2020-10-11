@@ -5,12 +5,12 @@
 .main-visual-area {
 	width: 100%;
 	height: 670px;
-	background-image: image-url(main-visual.jpeg);
+	background-image: image-url("main-visual.jpeg");
 	background-size: cover;
 	.btn {
 	width: 400px;
 	height: 40px;
-}
+	}
 }
 
 .main-content-box {
