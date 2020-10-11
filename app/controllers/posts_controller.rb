@@ -39,11 +39,11 @@ class PostsController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
     if params[:tag_name] #タグの絞り込み
-      @posts = Post.tagged_with(params[:tag_name]).page(params[:page]).per(5)
+      @posts = Post.tagged_with(params[:tag_name]).order(created_at: :desc).page(params[:page]).per(8)
     elsif params[:q] # :title, :bodyで検索
-      @posts = @q.result(distinct: true).page(params[:page]).per(5)
+      @posts = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(8)
     else
-      @posts = Post.page(params[:page]).per(5)
+      @posts = Post.order(created_at: :desc).page(params[:page]).per(8)
     end
   end
 
