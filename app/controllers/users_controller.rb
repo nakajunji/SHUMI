@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_user, only: %i[edit update destroy show]
 
-  def edit; end
+  def edit
+    if @user.id != current_user.id
+      redirect_to user_path(@user)
+    end
+  end
 
   def update
     if @user.update(user_params)

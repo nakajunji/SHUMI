@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: %i[edit update destroy show]
 
   def new
@@ -15,7 +17,11 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    if @post.user_id != current_user.id
+      redirect_to post_path(@post)
+    end
+  end
 
   def update
     if @post.update(post_params)
