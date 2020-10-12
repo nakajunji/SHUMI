@@ -39,13 +39,22 @@ html
             ul.nav.navbar-nav.navbar-right
               li
                 = link_to "ABOUT", home_about_path
+              li.dropdown
+                a.dropdown-toggle data-toggle="dropdown"
+                  | POSTS
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    = link_to "Posts List", posts_path
+                  li
+                    = link_to "New Post", new_post_path
               li
                 = link_to "SIGN UP", new_user_registration_path
               li
                 = link_to "SIGN IN", new_user_session_path
 
     main
-      div.container
+      .container
         = yield
     footer
-      | footer
+      | SHUMI
