@@ -22,11 +22,11 @@
 					= render 'posts/tag_list', tag_list: @post.tag_list
 				li
 					.row
-						.col-lg-4
+						.col-lg-5
 							= link_to user_path(@post.user), class: "link" do
 								i.fas.fa-pencil-alt
 								= @post.user.name
-						.col-lg-8
+						.col-lg-7
 							i.fas.fa-clock
 							= @post.created_at.to_s(:datetime_jp2)
 			- if @post.user == current_user

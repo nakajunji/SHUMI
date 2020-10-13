@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   attachment :profile_image # reffile
 
-  validates :name, length: { maximum: 10 }
+  validates :name, length: { maximum: 8 }
   validates :introduction, length: { maximum: 200 }
   validates :hobby, length: { maximum: 30 }
 
