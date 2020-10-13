@@ -1,8 +1,8 @@
 .row
-	h3.title
+	h3.col-lg-offset-1.title
 		| USER DETAILS
 .row
-	.col-lg-4.show-user-box
+	.col-lg-4.col-lg-offset-1.show-user-box
 		.row.show-user-img
 			= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:'300x300'
 		.row
@@ -20,14 +20,14 @@
 				li
 					.col-lg-3
 						| Introduction:
-					.col-lg-8.col-lg-offset-1.white-space
+					p.col-lg-8.col-lg-offset-1.white-space
 						= @user.introduction
 				li
 					- if @user == current_user
 						.col-lg-2.col-lg-offset-4
 							= link_to "Edit", edit_user_path(@user), class: "btn btn-success"
 
-	.col-lg-6.col-lg-offset-2
+	.col-lg-5.col-lg-offset-1
 		- @posts.each do |post|
 			.row.show-users-posts-box
 				.col-lg-3.index-user-img
@@ -44,3 +44,7 @@
 							| Body:
 						.col-lg-8
 							= post.body.truncate(20)
+					.row
+						.col-lg-offset-7
+							i.fas.fa-clock
+							= post.created_at.to_s(:datetime_jp2)

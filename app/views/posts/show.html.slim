@@ -1,34 +1,37 @@
 .row
-	h3.title
+	h3.col-lg-offset-1.title
 		| POST DETAILS
-.row.show-post-box
-	.col-lg-4.col-lg-offset-1
-		= attachment_image_tag @post, :post_image, size:'400x400', fallback: "no_image.jpg", size:'400x400'
-	.col-lg-4.col-lg-offset-2
-		ul.show-post-text
-			li
-				| Title:　
-				= @post.title
-			li.white-space
-				.row
-					p.col-lg-2
-						| Body:　
-					p.col-lg-10
-						= @post.body
-			li
-				= render 'posts/tag_list', tag_list: @post.tag_list
-			li
-				.row
-					.col-lg-4
-						= link_to user_path(@post.user), class: "link" do
-							i.fas.fa-pencil-alt
-							= @post.user.name
-					.col-lg-8
-						i.fas.fa-clock
-						= @post.created_at.to_s(:datetime_jp2)
-		- if @post.user == current_user
-			li.edit-btn
-				= link_to "Edit", edit_post_path(@post), class: "btn btn-success"
+.row
+	.col-lg-10.col-lg-offset-1.show-post-box
+		.col-lg-4.col-lg-offset-1
+			= attachment_image_tag @post, :post_image, size:'400x400', fallback: "no_image.jpg", size:'400x400'
+		.col-lg-4.col-lg-offset-2
+			ul.show-post-text
+				li
+					.col-lg-3
+						| Title:
+					.col-lg-9
+						= @post.title
+				li.white-space
+					.row
+						.col-lg-3
+							| Body:
+						p.col-lg-9
+							= @post.body
+				li
+					= render 'posts/tag_list', tag_list: @post.tag_list
+				li
+					.row
+						.col-lg-4
+							= link_to user_path(@post.user), class: "link" do
+								i.fas.fa-pencil-alt
+								= @post.user.name
+						.col-lg-8
+							i.fas.fa-clock
+							= @post.created_at.to_s(:datetime_jp2)
+			- if @post.user == current_user
+				li.edit-btn
+					= link_to "Edit", edit_post_path(@post), class: "btn btn-success"
 .row
 	div[id="show_favorite_#{@post.id}"
 		class="favorites col-lg-6 col-lg-offset-3"]

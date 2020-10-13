@@ -34,20 +34,30 @@ body {
 	padding-bottom: 0;
 }
 
-nav {
-	font-family: 'Anton', sans-serif;
-}
-
-.navbar-nav {
-	font-size: 25px;
-	padding-top: 10px;
-}
-
 main {
  	padding-top: 70px;
  	font-family: 'Roboto', sans-serif;
  	background: rgba(215, 238, 255, 0.5);
  	min-height: 740px;
+}
+.container-fluid {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+.row {
+	margin-right: 0;
+	margin-left: 0;
+}
+
+nav {
+	font-family: 'Anton', sans-serif;
+	padding-right: 20px;
+}
+
+.navbar-nav {
+	font-size: 25px;
+	padding-top: 10px;
 }
 
 h3 {
@@ -60,6 +70,10 @@ h4 {
 
 li {
 	list-style: none;
+}
+
+p {
+	word-wrap: break-word;
 }
 
 .white-space {
@@ -76,12 +90,26 @@ li {
 
 .search-form {
 	text-align: right;
+	margin-bottom: 30px;
+	font-size: 18px;
+
+	.btn {
+		margin-left: 10px;
+	}
 }
 
 .edit-box {
 	background: rgba(255, 255, 255, 0.8);
 	border-radius: 30px;
 	padding: 30px 0;
+}
+
+.alert {
+	color:#262626; 
+	background:#FFEBE8;
+	text-align: center;
+	border:2px solid #990000;
+	padding:12px; font-weight:850;
 }
 
 footer {

@@ -9,14 +9,14 @@
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	akign-items: center;
+	align-items: center;
 
 	.col-lg-offset-2 {
 		background: rgba(255, 255, 255, 0.8);
 		border-radius: 30px;
 		display: flex;
 		justify-content: center;
-		akign-items: center;
+		align-items: center;
 
 		.index-post-img {
 			margin: auto;
@@ -58,7 +58,7 @@
 	padding-bottom: 50px;
 	display: flex;
 	justify-content: center;
-	akign-items: center;
+	align-items: center;
 }
 
 .show-user-text {
@@ -79,12 +79,12 @@
 		border-radius: 30px;
 		display: flex;
 		justify-content: center;
-		akign-items: center;
+		align-items: center;
 		margin-bottom: 20px;
 }
 
 .show-users-posts-text {
-	font-size: 18px;
+	font-size: 16px;
 }
 
 /* ----------ここまでshow---------- */

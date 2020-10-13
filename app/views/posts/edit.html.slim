@@ -1,33 +1,35 @@
 .row
-	h3.title
+	h3.col-lg-offset-1.title
 		| EDITING POST
-.row.edit-box
-	= form_with model: @post, local: true do |f|
-		.row
-			.col-lg-4.col-lg-offset-1
-				img.img_prev.hidden width=300 height=300
-					= attachment_image_tag @post, :post_image,
-					:fill, 300, 300, fallback: "no_image.jpg", size:'300x300', class: "default_img"
-				.form-group
-					= f.attachment_field :post_image, class: "img_form"
-			.col-lg-4.col-lg-offset-2
-				.row.form-group
-					.col-lg-3
-						= f.label :Title
-					.col-lg-9
-						= f.text_field :title, class: "post-text-field"
-				.row.form-group
-					.col-lg-3
-						= f.label :Body
-					.col-lg-9
-						= f.text_area :body, class: "post-text-area", rows: 7
-				.row.form-group
-					.col-lg-3
-						= f.label :Tag
-					.col-lg-9
-						= f.text_field :tag_list, value: @post.tag_list.join(','), class: "post-text-field"
-		.row.form-group
-			.col-lg-2.col-lg-offset-5
-				= f.submit "Update", class: "btn btn-primary edit-update-btn"
-			.col-lg-1.col-lg-offset-4
-				= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger"
+.row
+	.col-lg-10.col-lg-offset-1.edit-box
+		= form_with model: @post, local: true do |f|
+			= render 'layouts/error_messages', model: f.object
+			.row
+				.col-lg-4.col-lg-offset-1
+					img.img_prev.hidden width=300 height=300
+						= attachment_image_tag @post, :post_image,
+						:fill, 300, 300, fallback: "no_image.jpg", size:'300x300', class: "default_img"
+					.form-group
+						= f.attachment_field :post_image, class: "img_form"
+				.col-lg-5.col-lg-offset-1
+					.row.form-group
+						.col-lg-3
+							= f.label :Title
+						.col-lg-9
+							= f.text_field :title, class: "post-text-field"
+					.row.form-group
+						.col-lg-3
+							= f.label :Body
+						.col-lg-9
+							= f.text_area :body, class: "post-text-area", rows: 7
+					.row.form-group
+						.col-lg-3
+							= f.label :Tag
+						.col-lg-9
+							= f.text_field :tag_list, value: @post.tag_list.join(','), class: "post-text-field"
+			.row.form-group
+				.col-lg-2.col-lg-offset-5
+					= f.submit "Update", class: "btn btn-primary edit-update-btn"
+				.col-lg-1.col-lg-offset-4
+					= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger"

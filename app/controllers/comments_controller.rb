@@ -4,10 +4,15 @@ class CommentsController < ApplicationController
 
   def create
   	@post = Post.find(params[:post_id])
+    @favorite = Favorite.find_by(user_id: current_user.id, post_id: @post.id)
+    @comments = @post.comments.order(created_at: :desc)
   	@comment = @post.comments.build(comment_params)
   	@comment.user_id = current_user.id
-  	@comment.save
-  	render :index
+  	if @comment.save
+      render :index
+    else
+      render 'posts/show'
+    end
   end
 
   def destroy

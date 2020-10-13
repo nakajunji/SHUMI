@@ -1,11 +1,12 @@
 .row
-	h3.col-lg-8.col-lg-offset-2.title
+	h3.col-lg-offset-2.title
 		| Users
 .row.search-form
-	= search_form_for @q do |f|
-		= f.label :name_or_hobby, "Keyword"
-		= f.search_field :name_or_hobby_cont
-		= f.submit "Search"
+	.col-lg-4.col-lg-offset-7
+		= search_form_for @q do |f|
+			= f.label :name_or_hobby, "Keyword"
+			= f.search_field :name_or_hobby_cont
+			= f.submit "Search", class: "btn btn-primary"
 - @users.each do |user|
 	.row.index-user-box
 		.col-lg-8.col-lg-offset-2
