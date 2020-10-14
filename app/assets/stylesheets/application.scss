@@ -105,20 +105,26 @@ p {
 }
 
 .alert {
-	color:#262626; 
-	background:#FFEBE8;
+	color: #262626;
+	background: #FFEBE8;
 	text-align: center;
-	border:2px solid #990000;
-	padding:12px; font-weight:850;
+	border: 2px solid #990000;
+	padding:1 2px;
+	font-weight: 850;
 }
 
 footer {
-  position: fixed;
-  bottom: 0;
-  margin-bottom: 0;
-  width: 100%;
-  height: 50px;
-  background: rgba(0, 0, 0, 0.7);
-  color: rgba(255, 255, 255, 0.7);
-  text-align: center;
+	position: fixed;
+	bottom: 0;
+	margin-bottom: 0;
+	width: 100%;
+	height: 50px;
+	background: rgba(0, 0, 0, 0.7);
+	color: rgba(255, 255, 255, 0.7);
+	text-align: center;
+}
+
+.footer-link {
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.7)
 }
